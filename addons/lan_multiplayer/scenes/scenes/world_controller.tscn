@@ -1,0 +1,102 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct7hbufknkffx"]
+
+[ext_resource type="Script" uid="uid://c0yddeqa472ae" path="res://addons/lan_multiplayer/scripts/world_controller.gd" id="1_s85w8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tadx"]
+bg_color = Color(0.419608, 0.419608, 0.419608, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vp73i"]
+
+[node name="world_controller" type="CanvasLayer"]
+script = ExtResource("1_s85w8")
+
+[node name="leaderboard" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="leaderboard"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="room" type="VBoxContainer" parent="leaderboard"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="leaderboard/room"]
+layout_mode = 2
+size_flags_vertical = 1
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_5tadx")
+text = "LEADERBOARD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="back_button" type="Button" parent="leaderboard"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 111.0
+offset_right = 250.0
+offset_bottom = 151.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "BACK"
+
+[node name="timer" type="Label" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -51.5
+offset_right = 51.5
+offset_bottom = 55.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vp73i")
+text = "0s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="timer"]
+
+[connection signal="timeout" from="timer/Timer" to="." method="_on_timer_timeout"]
