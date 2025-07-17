@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckaeco0v0n6lv"]
+
+[ext_resource type="Script" uid="uid://cusx1u8v8l1uh" path="res://addons/lan_multiplayer/scripts/player_controller.gd" id="1_4tk2b"]
+
+[node name="player_controller" type="Node"]
+script = ExtResource("1_4tk2b")
